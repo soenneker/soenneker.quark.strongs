@@ -1,0 +1,50 @@
+﻿@page "/"
+@using Microsoft.Extensions.Logging
+@using Soenneker.Quark.Strongs
+
+@inject ILogger<Index> Logger
+
+<img src="https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png" />
+<h1>Soenneker.Quark.Strongs demo</h1>
+<p>This page demonstrates some of the common usages for the Strong component.</p>
+<br />
+
+<hr />
+
+<h2>Basic Strong Usage</h2>
+<Strong Class="text-primary">This is a basic strong element with a CSS class</Strong>
+
+<br /><br />
+
+<h2>Strong with Styling</h2>
+<Strong Style="color: red; font-size: 1.2em;">This strong element has inline styling</Strong>
+
+<br /><br />
+
+<h2>Strong with Click Handler</h2>
+<Strong @onclick="HandleStrongClick" Class="btn btn-primary" Style="cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; border-radius: 3px;">
+    Click me!
+</Strong>
+
+<br /><br />
+
+<h2>Strong with Child Content</h2>
+<Strong Class="highlight">
+    <em>Italic text</em> inside a strong element
+</Strong>
+
+<br /><br />
+
+<h2>Strong in Context</h2>
+<p>This is a paragraph with <Strong>important text</Strong> that should be emphasized.</p>
+
+@code{
+    private void HandleStrongClick()
+    {
+        Logger.LogInformation("Strong element was clicked!");
+    }
+
+    protected override void OnInitialized()
+    {
+    }
+}
